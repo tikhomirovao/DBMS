@@ -1,8 +1,8 @@
-USE PV_319_Import
+п»їUSE PV_319_Import
 GO
 
-SELECT			[Направление обучения]		= direction_name,
-				[Количество часов]			= COUNT(direction_name)
+SELECT			[РќР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ]		= direction_name,
+				[РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р°СЃРѕРІ]			= COUNT(direction_name)
 FROM			Directions, Disciplines,DisciplinesDirectionsRelation
 WHERE			direction = direction_id
 GROUP BY		direction_name
