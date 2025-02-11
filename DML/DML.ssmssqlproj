@@ -58,6 +58,36 @@
           <AssociatedConnUserName />
           <FullPath>SQLQuery1 - UPDATE Groups.sql</FullPath>
         </FileNode>
+        <FileNode Name="SQLQuery2 - COUNT Discipline for Teachers.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-BMM1386\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-BMM1386\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery2 - COUNT Discipline for Teachers.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery2 - COUNT Teachers and Disciplines.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-BMM1386\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-BMM1386\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery2 - COUNT Teachers and Disciplines.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery3 - COUNT DIsiplines for DIrections.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-BMM1386\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-BMM1386\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery3 - COUNT DIsiplines for DIrections.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery3 - COUNT Teachers for Directions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-BMM1386\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-BMM1386\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery3 - COUNT Teachers for Directions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery4 - COUNT Directions and Time.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-BMM1386\SQLEXPRESS:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-BMM1386\SQLEXPRESS</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery4 - COUNT Directions and Time.sql</FullPath>
+        </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
