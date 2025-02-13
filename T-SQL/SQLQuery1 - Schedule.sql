@@ -1,13 +1,13 @@
-USE	PV_319_Import;
+п»їUSE	PV_319_Import;
 GO
 
 SET DATEFIRST 1;
 
 DECLARE @group					AS INT				= (SELECT group_id			FROM Groups					WHERE group_name = N'PV_319');
 DECLARE @group_name				AS NVARCHAR(150)	= (SELECT group_name		FROM Groups,Schedule		WHERE group_id = @group);
-DECLARE @discipline				AS SMALLINT			= (SELECT discipline_id		FROM Disciplines			WHERE discipline_name LIKE N'Объектно-ориентированное программирование%');
+DECLARE @discipline				AS SMALLINT			= (SELECT discipline_id		FROM Disciplines			WHERE discipline_name LIKE N'РћР±СЉРµРєС‚РЅРѕ-РѕСЂРёРµРЅС‚РёСЂРѕРІР°РЅРЅРѕРµ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ%');
 DECLARE @discipline_name		AS NVARCHAR(150)	= (SELECT discipline_name	FROM Disciplines,Schedule	WHERE discipline_id = @discipline);
-DECLARE @teacher				AS SMALLINT			= (SELECT teacher_id		FROM Teachers				WHERE first_name = N'Олег');
+DECLARE @teacher				AS SMALLINT			= (SELECT teacher_id		FROM Teachers				WHERE first_name = N'РћР»РµРі');
 DECLARE @teacher_name			AS NVARCHAR(150)	= (SELECT first_name		FROM Teachers,Schedule		WHERE teacher_id = @teacher); 
 DECLARE @start_date				AS DATE				= N'2024-06-01';
 DECLARE @date					AS DATE				= @start_date;
@@ -30,15 +30,15 @@ BEGIN
 		PRINT(@teacher_name);
 		IF(@date < GETDATE())
 		BEGIN
-			PRINT N'Проведено'
+			PRINT N'РџСЂРѕРІРµРґРµРЅРѕ'
 		END
 		IF(@date > GETDATE())
 		BEGIN
-			PRINT N'Запланировано'
+			PRINT N'Р—Р°РїР»Р°РЅРёСЂРѕРІР°РЅРѕ'
 		END
 		IF(@date = GETDATE())
 		BEGIN
-			PRINT N'Занятие сегодня'
+			PRINT N'Р—Р°РЅСЏС‚РёРµ СЃРµРіРѕРґРЅСЏ'
 		END
 		PRINT('-------------------------------');
 		IF(DATEPART(WEEKDAY, @date) = 6)
