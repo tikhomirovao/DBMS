@@ -20,13 +20,29 @@ WHILE(@lesson <= @number_of_lessons)
 BEGIN
 		PRINT(@group_name);
 		PRINT(@discipline_name);
-		PRINT(DATENAME(WEEKDAY, @date));
 		PRINT(@date);
+		PRINT(DATENAME(WEEKDAY, @date));
 		PRINT(@lesson);
 		PRINT(@time);
+
+		IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group AND discipline=@discipline AND [date]=@date AND [time]=@time)
+		BEGIN
+			INSERT Schedule
+					([group], discipline , teacher, [date], [time], spent)
+			VALUES	(@group, @discipline, @teacher, @date, @time, IIF(@date < GETDATE(), 1, 0));
+		END
+--IIF(condition,value_1,value_2);
 		SET @lesson = @lesson + 1;
+
 		PRINT(@lesson);
 		PRINT(DATEADD(MINUTE, 95, @time));
+		IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group AND discipline=@discipline AND [date]=@date AND [time]=DATEADD(MINUTE,95,@time))
+		BEGIN
+			INSERT Schedule
+						([group], discipline , teacher, [date], [time], spent)
+			VALUES	(@group, @discipline, @teacher, @date, DATEADD(MINUTE, 95, @time), IIF(@date < GETDATE(), 1, 0));
+		END
+		SET @lesson = @lesson + 1;
 		PRINT(@teacher_name);
 		IF(@date < GETDATE())
 		BEGIN
