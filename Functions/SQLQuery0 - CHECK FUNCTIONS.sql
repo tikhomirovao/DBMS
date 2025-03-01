@@ -6,3 +6,5 @@ PRINT(dbo.GetGroupID(N'PV_319'));
 PRINT(dbo.GetDisciplineID(N'Hardware%'));
 --EXEC sp_PrintScheduleForGroup N'PV_319';
 PRINT(dbo.CountSpentLessons(N'PV_319', N'Процедурное программирование%'));
+PRINT(dbo.GetNewYearHolidaysStartDate(2025));
+PRINT(dbo.GetSummerHolidaysStart(2025));
