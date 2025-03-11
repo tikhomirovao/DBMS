@@ -2,7 +2,7 @@ USE PV_319_Import;
 SET DATEFIRST 1;
 GO
 
-CREATE PROCEDURE sp_AddHolidays
+ALTER PROCEDURE sp_AddHolidays
 @year	AS		SMALLINT,
 @name	AS		NVARCHAR(150)
 AS

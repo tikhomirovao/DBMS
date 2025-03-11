@@ -12,4 +12,4 @@ GO
 --
 --PRINT('----------------------------------')
 --PRINT(dbo.GetHolidaysStartDate(N'8%', 2025));
-PRINT(dbo.GetEasterDate(2025));
+PRINT(dbo.GetEasterDate(2004));
