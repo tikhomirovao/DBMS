@@ -8,4 +8,7 @@ PRINT(dbo.GetDisciplineID(N'Hardware%'));
 PRINT(dbo.CountSpentLessons(N'PV_319', N'Процедурное программирование%'));
 PRINT(dbo.GetNewYearHolidaysStartDate(2025));
 PRINT(dbo.GetSummerHolidaysStart(2025));
-PRINT(dbo.GetHolidaysDuration(N'Майские%'));
+PRINT(dbo.GetHolidaysDuration(N'Летние%'));
+
+PRINT('----------------------------------')
+PRINT(dbo.GetHolidaysStartDate(N'8%', 2025));
