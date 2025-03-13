@@ -16,8 +16,12 @@ GO
 
 --PRINT(DATENAME(WEEKDAY,N'2023-11-23'));
 --PRINT(DATEPART(WEEKDAY,N'2023-11-23'));
-
 --EXEC sp_ScheduleForBaseStacionarGroup N'PV_319', N'Процедурное программирование %', N'Ковтун', N'2023-11-23', '18:30', 2,4,6,2,1;
-EXEC sp_ScheduleForBaseStacionarGroup N'PV_319', N'Процедурное программирование%', N'Ковтун', N'2023-11-23', '18:30', 4,2,1;
-EXEC sp_ScheduleForBaseStacionarGroup N'PV_319', N'Hardware%', N'Кобылинский', N'2023-11-25', '18:30', 6,2,0;
-EXEC sp_PrintScheduleForGroup N'PV_319';
+
+--DELETE FROM Schedule;
+
+EXEC sp_ScheduleForBaseStacionarGroup	N'PV_319', N'Процедурное программирование%',	N'Ковтун',			N'2023-11-23',	'18:30', 4,2,1;
+EXEC sp_ScheduleForBaseStacionarGroup	N'PV_319', N'Hardware%',						N'Кобылинский',		N'2023-11-25',	'18:30', 6,2,0;
+EXEC sp_ScheduleForStacionarGroup		N'PV_319', N'Объектно%',						N'Ковтун',			N'2024-06-01',	'18:30';
+EXEC sp_ScheduleForStacionarGroup		N'PV_319', N'%UML%',							N'Ковтун',			N'2024-08-10',	'18:30';
+EXEC sp_PrintScheduleForGroup			N'PV_319';

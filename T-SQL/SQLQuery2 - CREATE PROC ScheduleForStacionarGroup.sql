@@ -1,7 +1,7 @@
 ﻿USE PV_319_Import;
 GO
 
-CREATE PROCEDURE dbo.sp_ScheduleForStacionarGroup
+ALTER PROCEDURE dbo.sp_ScheduleForStacionarGroup
 	@group_name			NVARCHAR(16),
 	@discipline_name	NVARCHAR(150),
 	@teacher_last_name	NVARCHAR(50),
@@ -26,37 +26,40 @@ BEGIN
 		PRINT(DATENAME(WEEKDAY, @date));
 		PRINT(@lesson);
 		PRINT(@time);
-	
-		IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group AND discipline=@discipline AND [date]=@date AND [time]=@time)
+		
+		IF NOT EXISTS (SELECT [date] FROM DaysOFF WHERE [date] = @date)
 		BEGIN
-			INSERT Schedule
-					([group], discipline , teacher, [date], [time], spent)
-			VALUES	(@group, @discipline, @teacher, @date, @time, IIF(@date < GETDATE(), 1, 0));
-		END
-	--IIF(cndition,value_1,value_2);
-		SET @lesson = @lesson + 1;
-	
-		PRINT(@lesson);
-		PRINT(DATEADD(MINUTE, 95, @time));
-		IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group AND discipline=@discipline AND [date]=@date AND [time]=DATEADD(MINUTE,95,@time))
-		BEGIN
-			INSERT Schedule
+			IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group  AND [date]=@date AND [time]=@time)--AND discipline=@discipline
+			BEGIN
+				INSERT Schedule
 						([group], discipline , teacher, [date], [time], spent)
-			VALUES	(@group, @discipline, @teacher, @date, DATEADD(MINUTE, 95, @time), IIF(@date < GETDATE(), 1, 0));
+				VALUES	(@group, @discipline, @teacher, @date, @time, IIF(@date < GETDATE(), 1, 0));
+				SET @lesson = @lesson + 1;
+			END
+	        --IIF(cndition,value_1,value_2);
+	
+			PRINT(@lesson);
+			PRINT(DATEADD(MINUTE, 95, @time));
+			IF NOT EXISTS(SELECT * FROM Schedule WHERE [group]=@group  AND [date]=@date AND [time]=DATEADD(MINUTE,95,@time))--AND discipline=@discipline
+			BEGIN
+				INSERT Schedule
+						([group], discipline , teacher, [date], [time], spent)
+				VALUES	(@group, @discipline, @teacher, @date, DATEADD(MINUTE, 95, @time), IIF(@date < GETDATE(), 1, 0));
+				SET @lesson = @lesson + 1;
+			END
 		END
-		SET @lesson = @lesson + 1;
-		IF(@date < GETDATE())
-		BEGIN
-			PRINT N'Проведено'
-		END
-		IF(@date > GETDATE())
-		BEGIN
-			PRINT N'Запланировано'
-		END
-		IF(@date = GETDATE())
-		BEGIN
-			PRINT N'Занятие сегодня'
-		END
+		--IF(@date < GETDATE())
+		--BEGIN
+		--	PRINT N'Проведено'
+		--END
+		--IF(@date > GETDATE())
+		--BEGIN
+		--	PRINT N'Запланировано'
+		--END
+		--IF(@date = GETDATE())
+		--BEGIN
+		--	PRINT N'Занятие сегодня'
+		--END
 		PRINT('-------------------------------');
 		IF(DATEPART(WEEKDAY, @date) = 6)
 		BEGIN
